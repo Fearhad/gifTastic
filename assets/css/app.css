@@ -1,0 +1,12 @@
+.jumbotron {
+    text-align: center;
+    background-image: url("../images/pexels-photo-924306.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+    text-shadow: 0 0 15px #FF0000, 0 0 18px #0000FF;    
+}
+
+.card-title {
+    background-color: khaki;
+}
