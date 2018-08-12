@@ -13,7 +13,7 @@ function renderButtons() {
     }
 };
 
-$(document).on( "click", "button", function() {
+$(document).on("click", "button", function () {
     var country = $(this).attr("data-name");
     console.log(country);
     var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
@@ -27,18 +27,32 @@ $(document).on( "click", "button", function() {
             console.log(results);
 
             for (var i = 0; i < results.length; i++) {
-                var countryDiv = $("<div>");
+                var countryDiv = $("<div class='imgBox polaroid rotate_right'>");
                 var p = $("<p>").text("Rating: " + results[i].rating);
-                var countryImage = $("<img>");
-                countryImage.attr("src", results[i].images.fixed_height.url);
-                countryDiv.append(p);
+                var countryImage = $("<img data-state='still'>");
+                countryImage.attr("src", results[i].images.fixed_height_still.url);
+                countryImage.attr("data-still", results[i].images.fixed_height_still.url);
+                countryImage.attr("data-animate", results[i].images.fixed_height.url);
                 countryDiv.append(countryImage);
-                $("#imgContainer").prepend(countryDiv);
+                countryDiv.append(p);                
+                $("#imgContainer").append(countryDiv);
             }
+            
         })
         .catch(function (error) {
             console.log(error);
         })
-  });
+});
 
+$(document).on("click", "img", function () {
+    var state = $(this).attr("data-state");
+
+    if (state === "still") {
+        $(this).attr("src", $(this).attr("data-animate"));
+        $(this).attr("data-state", "animate");
+    } else {
+        $(this).attr("src", $(this).attr("data-still"));
+        $(this).attr("data-state", "still");
+    }
+});
 renderButtons();
