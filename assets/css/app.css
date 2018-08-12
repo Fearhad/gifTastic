@@ -8,7 +8,7 @@
 }
 
 .card-title {
-    background-color: khaki;
+    background-color: plum;
 }
 
 .imgBox {
@@ -17,7 +17,7 @@
 }
 
 .polaroid {
-    
+    margin-top: 10px;
     padding: 10px 10px 20px 10px;
     border: 1px solid #BFBFBF;
     background-color: white;
@@ -28,4 +28,8 @@
     -ms-transform: rotate(7deg); /* IE 9 */
     -webkit-transform: rotate(7deg); /* Safari */
     transform: rotate(7deg);
+}
+
+input {
+    margin-bottom: 10px;
 }

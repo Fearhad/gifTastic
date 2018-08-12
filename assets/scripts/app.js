@@ -13,7 +13,8 @@ function renderButtons() {
     }
 };
 
-$(document).on("click", "button", function () {
+$(document).on("click", ".country", function () {
+    $("#imgContainer").empty();
     var country = $(this).attr("data-name");
     console.log(country);
     var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
@@ -55,4 +56,11 @@ $(document).on("click", "img", function () {
         $(this).attr("data-state", "still");
     }
 });
+
+$(document).on("click", "#submit", function () {
+   var addCountry = $("#addCountry").val().trim();
+   topics.push(addCountry);
+   renderButtons();
+});
+
 renderButtons();
