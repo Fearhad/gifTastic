@@ -30,11 +30,13 @@ $(document).on("click", ".country", function () {
             for (var i = 0; i < results.length; i++) {
                 var countryDiv = $("<div class='imgBox polaroid rotate_right'>");
                 var p = $("<p>").text("Rating: " + results[i].rating);
+                var pTitle = $("<p>").text("Title: " + results[i].title);
                 var countryImage = $("<img data-state='still'>");
                 countryImage.attr("src", results[i].images.fixed_height_still.url);
                 countryImage.attr("data-still", results[i].images.fixed_height_still.url);
                 countryImage.attr("data-animate", results[i].images.fixed_height.url);
                 countryDiv.append(countryImage);
+                countryDiv.append(pTitle);  
                 countryDiv.append(p);                
                 $("#imgContainer").append(countryDiv);
             }
